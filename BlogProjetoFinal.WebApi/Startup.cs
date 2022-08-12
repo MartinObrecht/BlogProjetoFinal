@@ -1,8 +1,11 @@
 using BlogProjetoFinal.Domain;
+using Liquid.Repository.EntityFramework.Extensions;
 using BlogProjetoFinal.Domain.Entities;
+using BlogProjetoFinal.Repository;
 using Liquid.WebApi.Http.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -40,11 +43,11 @@ namespace BlogProjetoFinal.WebApi
             // [Mongo Cartridge]
             // 1. add Liquid Cartridge using CLI : dotnet add package Liquid.Repository.Mongo --version 2.*
             // 3. import liquid cartridge reference here: using Liquid.Repository.Mongo.Extensions;
-            // 4. call cartridge DI method here : services.AddLiquidMongoRepository<MyObjectEntity, int>("Liquid:MongoSettings:Entities");
+            // 4. call cartridge DI method here : services.AddLiquidMongoRepository<UsuarioEntity, int>("Liquid:MongoSettings:Entities");
             // 5. edit appsettings.json file to include database configurations.
             //
             //[EntityFramework Cartridge]
-            // 1. add DbContext using CLI command: dotnet new liquiddbcontextproject --projectName BlogProjetoFinal --entityName MyObject
+            // 1. add DbContext using CLI command: dotnet new liquiddbcontextproject --projectName BlogProjetoFinal --entityName Usuario
             // 2. add BlogProjetoFinal.Repository to solution: dotnet sln add BlogProjetoFinal.Repository/BlogProjetoFinal.Repository.csproj
             // 3. add BlogProjetoFinal.Repository project reference to BlogProjetoFinal.WebApi project: dotnet add reference ../BlogProjetoFinal.Repository/BlogProjetoFinal.Repository.csproj
             // 4. add database dependency in this project using CLI command: dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 5.0.13
@@ -53,7 +56,7 @@ namespace BlogProjetoFinal.WebApi
             // 7. add Liquid Cartridge in this project using CLI command: dotnet add package Liquid.Repository.EntityFramework --version 2.*
             // 8. import liquid cartridge reference here: using Liquid.Repository.EntityFramework.Extensions;
             // 9. import BlogProjetoFinal.Repository here: using BlogProjetoFinal.Repository;
-            // 9. call cartridge DI method here: services.AddLiquidEntityFramework<LiquidDbContext, MyObjectEntity, int>(options);
+            // 9. call cartridge DI method here: services.AddLiquidEntityFramework<LiquidDbContext, UsuarioEntity, int>(options);
             // 10. edit appsettings.json file to include database configurations if necessary (for InMemory it's not necessary).
 
             services.AddLiquidHttp(typeof(IDomainInjection).Assembly);

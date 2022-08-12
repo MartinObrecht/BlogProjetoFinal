@@ -9,9 +9,9 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.18.0" />
   </ItemGroup>
 
-  
   <ItemGroup>
     <ProjectReference Include="..\BlogProjetoFinal.Domain\BlogProjetoFinal.Domain.csproj" />
+    <ProjectReference Include="..\BlogProjetoFinal.Repository\BlogProjetoFinal.Repository.csproj" />
   </ItemGroup>
 
 </Project>
