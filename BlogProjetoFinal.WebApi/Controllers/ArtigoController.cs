@@ -10,6 +10,7 @@ using BlogProjetoFinal.Domain.Entities;
 using BlogProjetoFinal.Domain.Handlers.Artigo.Create;
 using BlogProjetoFinal.Domain.Handlers.Artigo.Update;
 using BlogProjetoFinal.Domain.Handlers.Artigo.Remove;
+using System;
 
 namespace BlogProjetoFinal.WebApi.Controllers
 {
@@ -24,7 +25,7 @@ namespace BlogProjetoFinal.WebApi.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
-        public async Task<IActionResult> Get([FromRoute] int id)
+        public async Task<IActionResult> Get([FromRoute] Guid id)
         {
             var response = await ExecuteAsync(new ReadArtigoQuery(id));
 
@@ -66,7 +67,7 @@ namespace BlogProjetoFinal.WebApi.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var response = await ExecuteAsync(new RemoveArtigoCommand(id));
 

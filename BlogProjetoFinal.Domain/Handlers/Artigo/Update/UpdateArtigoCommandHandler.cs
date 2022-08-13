@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Artigo.Update
 {
     public class UpdateArtigoCommandHandler : IRequestHandler<UpdateArtigoCommand, UpdateArtigoCommandResponse>
     {
-        private readonly ILiquidRepository<ArtigoEntity, int> _repository;
+        private readonly ILiquidRepository<ArtigoEntity, Guid> _repository;
 
-        public UpdateArtigoCommandHandler(ILiquidRepository<ArtigoEntity, int> repository)
+        public UpdateArtigoCommandHandler(ILiquidRepository<ArtigoEntity, Guid> repository)
         {
             _repository = repository;
         }

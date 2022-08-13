@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Artigo.Read
 {
     public class ReadArtigoQueryHandler : IRequestHandler<ReadArtigoQuery, ReadArtigoQueryResponse>
     {
-        private readonly ILiquidRepository<ArtigoEntity, int> _repository;
+        private readonly ILiquidRepository<ArtigoEntity, Guid> _repository;
 
-        public ReadArtigoQueryHandler(ILiquidRepository<ArtigoEntity, int> repository)
+        public ReadArtigoQueryHandler(ILiquidRepository<ArtigoEntity, Guid> repository)
         {
             _repository = repository;
         }

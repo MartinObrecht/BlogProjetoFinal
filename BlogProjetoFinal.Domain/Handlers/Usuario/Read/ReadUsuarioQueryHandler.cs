@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Read
 {
     public class ReadUsuarioQueryHandler : IRequestHandler<ReadUsuarioQuery, ReadUsuarioQueryResponse>
     {
-        private readonly ILiquidRepository<UsuarioEntity, int> _repository;
+        private readonly ILiquidRepository<UsuarioEntity, Guid> _repository;
 
-        public ReadUsuarioQueryHandler(ILiquidRepository<UsuarioEntity, int> repository)
+        public ReadUsuarioQueryHandler(ILiquidRepository<UsuarioEntity, Guid> repository)
         {
             _repository = repository;
         }

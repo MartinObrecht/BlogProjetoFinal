@@ -70,8 +70,8 @@ namespace BlogProjetoFinal.WebApi
             }
             services.AddDbContext<LiquidDbContext>(dbContextOptionsBuilder);
 
-            services.AddLiquidEntityFramework<LiquidDbContext, UsuarioEntity, int>(dbContextOptionsBuilder);
-            services.AddLiquidEntityFramework<LiquidDbContext, ArtigoEntity, int>(dbContextOptionsBuilder);
+            services.AddLiquidEntityFramework<LiquidDbContext, UsuarioEntity, Guid>(dbContextOptionsBuilder);
+            services.AddLiquidEntityFramework<LiquidDbContext, ArtigoEntity, Guid>(dbContextOptionsBuilder);
 
 
             services.AddControllers();

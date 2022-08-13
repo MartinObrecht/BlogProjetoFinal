@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Artigo.Create
 {
     public class CreateArtigoCommandHandler : IRequestHandler<CreateArtigoCommand>
     {
-        private readonly ILiquidRepository<ArtigoEntity, int> _repository;
+        private readonly ILiquidRepository<ArtigoEntity, Guid> _repository;
 
-        public CreateArtigoCommandHandler(ILiquidRepository<ArtigoEntity, int> repository)
+        public CreateArtigoCommandHandler(ILiquidRepository<ArtigoEntity, Guid> repository)
         {
             _repository = repository;
         }

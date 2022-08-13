@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Create
 {
     public class CreateUsuarioCommandHandler : IRequestHandler<CreateUsuarioCommand>
     {
-        private readonly ILiquidRepository<UsuarioEntity, int> _repository;
+        private readonly ILiquidRepository<UsuarioEntity, Guid> _repository;
 
-        public CreateUsuarioCommandHandler(ILiquidRepository<UsuarioEntity, int> repository)
+        public CreateUsuarioCommandHandler(ILiquidRepository<UsuarioEntity, Guid> repository)
         {
             _repository = repository;
         }

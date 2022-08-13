@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Update
 {
     public class UpdateUsuarioCommandHandler : IRequestHandler<UpdateUsuarioCommand, UpdateUsuarioCommandResponse>
     {
-        private readonly ILiquidRepository<UsuarioEntity, int> _repository;
+        private readonly ILiquidRepository<UsuarioEntity, Guid> _repository;
 
-        public UpdateUsuarioCommandHandler(ILiquidRepository<UsuarioEntity, int> repository)
+        public UpdateUsuarioCommandHandler(ILiquidRepository<UsuarioEntity, Guid> repository)
         {
             _repository = repository;
         }

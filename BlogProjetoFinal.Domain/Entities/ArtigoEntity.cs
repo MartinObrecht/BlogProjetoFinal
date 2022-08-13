@@ -3,7 +3,7 @@ using System;
 
 namespace BlogProjetoFinal.Domain.Entities
 {
-    public class ArtigoEntity : LiquidEntity<int>
+    public class ArtigoEntity : LiquidEntity<Guid>
     {
         public string Name { get; set; }
     }

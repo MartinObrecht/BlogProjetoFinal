@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Artigo.Remove
 {
     public class RemoveArtigoCommandHandler : IRequestHandler<RemoveArtigoCommand, RemoveArtigoCommandResponse>
     {
-        private readonly ILiquidRepository<ArtigoEntity, int> _repository;
+        private readonly ILiquidRepository<ArtigoEntity, Guid> _repository;
 
-        public RemoveArtigoCommandHandler(ILiquidRepository<ArtigoEntity, int> repository)
+        public RemoveArtigoCommandHandler(ILiquidRepository<ArtigoEntity, Guid> repository)
         {
             _repository = repository;
         }

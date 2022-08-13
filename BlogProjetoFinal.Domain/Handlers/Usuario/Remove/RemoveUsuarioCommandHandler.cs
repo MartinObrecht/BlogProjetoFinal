@@ -9,9 +9,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Remove
 {
     public class RemoveUsuarioCommandHandler : IRequestHandler<RemoveUsuarioCommand, RemoveUsuarioCommandResponse>
     {
-        private readonly ILiquidRepository<UsuarioEntity, int> _repository;
+        private readonly ILiquidRepository<UsuarioEntity, Guid> _repository;
 
-        public RemoveUsuarioCommandHandler(ILiquidRepository<UsuarioEntity, int> repository)
+        public RemoveUsuarioCommandHandler(ILiquidRepository<UsuarioEntity, Guid> repository)
         {
             _repository = repository;
         }

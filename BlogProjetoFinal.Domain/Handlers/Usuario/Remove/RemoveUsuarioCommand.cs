@@ -5,9 +5,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Remove
 {
     public class RemoveUsuarioCommand : IRequest<RemoveUsuarioCommandResponse>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public RemoveUsuarioCommand(int id)
+        public RemoveUsuarioCommand(Guid id)
         {
             Id = id;
         }
