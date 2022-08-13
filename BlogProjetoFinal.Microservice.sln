@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32106.194
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogProjetoFinal.WebApi", "BlogProjetoFinal.WebApi\BlogProjetoFinal.WebApi.csproj", "{A0ACD038-88CB-4717-819D-982EC8FB7B77}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogProjetoFinal.Domain", "BlogProjetoFinal.Domain\BlogProjetoFinal.Domain.csproj", "{31F60967-56CC-4B1C-B79F-620DD7DD7031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogProjetoFinal.Repository", "BlogProjetoFinal.Repository\BlogProjetoFinal.Repository.csproj", "{21988DE4-23DD-490B-BC43-02F2AE028833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogProjetoFinal.Repository", "BlogProjetoFinal.Repository\BlogProjetoFinal.Repository.csproj", "{21988DE4-23DD-490B-BC43-02F2AE028833}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BlogProjetoFinal.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace BlogProjetoFinal.Repository
@@ -13,5 +14,8 @@ namespace BlogProjetoFinal.Repository
         {
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
+
+        public DbSet<UsuarioEntity> UsuarioEntity { get; set; }
+        public DbSet<ArtigoEntity> ArtigoEntity { get; set; }
     }
 }

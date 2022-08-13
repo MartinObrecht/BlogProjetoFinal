@@ -5,6 +5,6 @@ namespace BlogProjetoFinal.Domain.Entities
 {
     public class ArtigoEntity : LiquidEntity<int>
     {
-        //TODO: declare entity properties.
+        public string Name { get; set; }
     }
 }

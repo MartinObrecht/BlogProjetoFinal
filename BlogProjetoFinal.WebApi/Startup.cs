@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Liquid.Core.Extensions.DependencyInjection;
 
 namespace BlogProjetoFinal.WebApi
 {
@@ -59,7 +60,19 @@ namespace BlogProjetoFinal.WebApi
             // 9. call cartridge DI method here: services.AddLiquidEntityFramework<LiquidDbContext, UsuarioEntity, int>(options);
             // 10. edit appsettings.json file to include database configurations if necessary (for InMemory it's not necessary).
 
+            services.AddLiquidConfiguration();
             services.AddLiquidHttp(typeof(IDomainInjection).Assembly);
+            services.AddSwaggerGen();
+
+            void dbContextOptionsBuilder(DbContextOptionsBuilder options)
+            {
+                options.UseInMemoryDatabase("CRUD");
+            }
+            services.AddDbContext<LiquidDbContext>(dbContextOptionsBuilder);
+
+            services.AddLiquidEntityFramework<LiquidDbContext, UsuarioEntity, int>(dbContextOptionsBuilder);
+            services.AddLiquidEntityFramework<LiquidDbContext, ArtigoEntity, int>(dbContextOptionsBuilder);
+
 
             services.AddControllers();
 

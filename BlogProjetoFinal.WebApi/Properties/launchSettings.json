@@ -7,6 +7,31 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:62006;http://localhost:62007"
+    },
+    "WSL": {
+      "commandName": "WSL2",
+      "launchBrowser": true,
+      "launchUrl": "https://localhost:62006",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:62006;http://localhost:62007"
+      },
+      "distributionName": ""
+    }
+  },
+  "swagger": {
+    "name": "v1",
+    "host": "",
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "title": "BlogProjetoFinal",
+    "version": "v1",
+    "description": "Blog Projeto FInal",
+    "SwaggerEndpoint": {
+      "url": "/swagger/v1/swagger.json",
+      "name": "BlogProjetoFinal.WebApi"
     }
   }
 }
