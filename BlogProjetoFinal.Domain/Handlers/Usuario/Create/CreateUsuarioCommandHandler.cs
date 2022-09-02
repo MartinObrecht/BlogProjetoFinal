@@ -19,7 +19,18 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Create
         ///<inheritdoc/>        
         public async Task<Unit> Handle(CreateUsuarioCommand request, CancellationToken cancellationToken)
         {
-            await _repository.AddAsync(request.Body);
+            var usuario = new UsuarioEntity
+            {
+                Id = Guid.NewGuid(),
+                Nome = request.Nome,
+                NomeDeUsuario = request.NomeDeUsuario,
+                Email = request.Email,
+                Senha = request.Senha,
+                DataAtualizacao = DateTime.Now,
+                DataCriacao = DateTime.Now,
+            };
+            
+            await _repository.AddAsync(usuario);
 
             return new Unit();
         }

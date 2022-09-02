@@ -5,9 +5,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Artigo.Read
 {
     public class ReadArtigoQuery : IRequest<ReadArtigoQueryResponse>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public ReadArtigoQuery(Guid id)
+        public ReadArtigoQuery(int id)
         {
             Id = id;
         }

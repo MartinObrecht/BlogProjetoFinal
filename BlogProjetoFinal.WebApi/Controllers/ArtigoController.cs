@@ -25,7 +25,7 @@ namespace BlogProjetoFinal.WebApi.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
 
-        public async Task<IActionResult> Get([FromRoute] Guid id)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
             var response = await ExecuteAsync(new ReadArtigoQuery(id));
 
@@ -67,7 +67,7 @@ namespace BlogProjetoFinal.WebApi.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var response = await ExecuteAsync(new RemoveArtigoCommand(id));
 

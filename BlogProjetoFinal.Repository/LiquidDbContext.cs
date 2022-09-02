@@ -1,6 +1,5 @@
 ﻿using BlogProjetoFinal.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace BlogProjetoFinal.Repository
 {
@@ -17,5 +16,6 @@ namespace BlogProjetoFinal.Repository
 
         public DbSet<UsuarioEntity> UsuarioEntity { get; set; }
         public DbSet<ArtigoEntity> ArtigoEntity { get; set; }
+        public DbSet<CategoriaEntity> CategoriaEntity { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace BlogProjetoFinal.WebApi.Controllers
         {
             await ExecuteAsync(new CreateUsuarioCommand(entity));
 
-            return CreatedAtAction(nameof(GetById), new { id = entity.Id }, entity);
+            return CreatedAtAction(nameof(GetById), new { id = entity.Id }, new { NomeUsuario = entity.NomeDeUsuario, Mensagem = $"Usuário {entity.NomeDeUsuario} Criado com sucesso!"});
         }
 
         [HttpPut]

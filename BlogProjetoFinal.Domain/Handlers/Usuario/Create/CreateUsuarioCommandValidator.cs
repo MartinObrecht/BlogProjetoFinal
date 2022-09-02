@@ -6,7 +6,10 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Create
     {
         public CreateUsuarioCommandValidator()
         {
-            RuleFor(request => request.Body.Id).NotEmpty().NotNull();
+            RuleFor(request => request.Nome).NotEmpty().NotNull();
+            RuleFor(request => request.Email).NotEmpty().NotNull();
+            RuleFor(request => request.NomeDeUsuario).NotEmpty().NotNull();
+            RuleFor(request => request.Senha).NotEmpty().NotNull();
         }
     }
 }

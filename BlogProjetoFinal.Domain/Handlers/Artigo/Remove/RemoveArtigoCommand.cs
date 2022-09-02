@@ -5,9 +5,9 @@ namespace BlogProjetoFinal.Domain.Handlers.Artigo.Remove
 {
     public class RemoveArtigoCommand : IRequest<RemoveArtigoCommandResponse>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
-        public RemoveArtigoCommand(Guid id)
+        public RemoveArtigoCommand(int id)
         {
             Id = id;
         }
