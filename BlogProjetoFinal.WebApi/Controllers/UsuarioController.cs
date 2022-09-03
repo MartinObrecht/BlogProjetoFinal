@@ -54,15 +54,15 @@ namespace BlogProjetoFinal.WebApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = entity.Id }, new { NomeUsuario = entity.NomeDeUsuario, Mensagem = $"Usuário {entity.NomeDeUsuario} Criado com sucesso!"});
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Put([FromBody] UsuarioEntity entity)
+        public async Task<IActionResult> Put([FromRoute] Guid id, UsuarioEntity entity)
         {
-            var response = await ExecuteAsync(new UpdateUsuarioCommand(entity));
+            var response = await ExecuteAsync(new UpdateUsuarioCommand(id, entity));
 
-            if (response.Data == null) return NotFound();
+            if (response.Nome == null) return NotFound();
 
-            return NoContent();
+            return Ok(response);
         }
 
         [HttpDelete("{id}")]
@@ -73,7 +73,7 @@ namespace BlogProjetoFinal.WebApi.Controllers
 
             if (response.Data == null) return NotFound();
 
-            return NoContent();
+            return Ok(new {Meensagem = "Usuário deletado"});
         }
     }
 }

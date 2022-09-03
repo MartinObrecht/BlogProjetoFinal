@@ -15,11 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlogProjetoFinal.Domain\BlogProjetoFinal.Domain.csproj" />
-    <ProjectReference Include="..\BlogProjetoFinal.Repository\BlogProjetoFinal.Repository.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

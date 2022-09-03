@@ -4,11 +4,15 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Update
 {
     public class UpdateUsuarioCommandResponse
     {
-        public UsuarioEntity Data { get; set; }
+        public string Nome { get; set; }
+        public string NomeDeUsuario { get; set; }
+        public string Email { get; set; }
 
-        public UpdateUsuarioCommandResponse(UsuarioEntity data)
+        public UpdateUsuarioCommandResponse(string nome, string nomeDeUsuario, string email)
         {
-            Data = data;
+            Nome = nome;
+            NomeDeUsuario = nomeDeUsuario;
+            Email = email;
         }
     }
 }

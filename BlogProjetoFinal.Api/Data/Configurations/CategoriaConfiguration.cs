@@ -1,10 +1,8 @@
-﻿using BlogProjetoFinal.Domain.Entities;
-using BlogProjetoFinal.Domain.Enums;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 
-namespace BlogProjetoFinal.Repository.Configurations
+namespace BlogProjetoFinal.Api.Data.Configurations
 {
     public class CategoriaConfiguration : IEntityTypeConfiguration<CategoriaEntity>
     {
@@ -29,7 +27,7 @@ namespace BlogProjetoFinal.Repository.Configurations
                 .IsRequired();
 
             builder.HasData(
-                new CategoriaEntity { Id = 1 ,NomeCategoria = "Backend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
+                new CategoriaEntity { Id = 1, NomeCategoria = "Backend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
                 new CategoriaEntity { Id = 2, NomeCategoria = "Frontend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
                 new CategoriaEntity { Id = 3, NomeCategoria = "Mobile", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
                 new CategoriaEntity { Id = 4, NomeCategoria = "Cloud", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },

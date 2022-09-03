@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlogProjetoFinal.Domain\BlogProjetoFinal.Domain.csproj" />
+    <Folder Include="Configurations\" />
   </ItemGroup>
 
 </Project>

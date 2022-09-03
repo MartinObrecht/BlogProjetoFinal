@@ -1,13 +1,8 @@
-﻿using BlogProjetoFinal.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BlogProjetoFinal.Repository.Configurations
+namespace BlogProjetoFinal.Api.Data.Configurations
 {
     public class ArtigoConfiguration : IEntityTypeConfiguration<ArtigoEntity>
     {

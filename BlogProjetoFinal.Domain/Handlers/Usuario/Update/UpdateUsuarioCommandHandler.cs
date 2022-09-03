@@ -19,14 +19,19 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Update
 
         public async Task<UpdateUsuarioCommandResponse> Handle(UpdateUsuarioCommand request, CancellationToken cancellationToken)
         {
-            var data = await _repository.FindByIdAsync(request.Body.Id);
+            var data = await _repository.FindByIdAsync(request.Id);
 
             if (data != null)
             {
-                await _repository.UpdateAsync(request.Body);
+                data.Senha = request.Usuario.Senha;
+                data.DataAtualizacao = DateTime.Now;
+                data.Email = request.Usuario.Email;
+                data.Nome = request.Usuario.Nome;
+
+                await _repository.UpdateAsync(data);
             }
 
-            return new UpdateUsuarioCommandResponse(request.Body);
+            return new UpdateUsuarioCommandResponse(data.Nome, data.NomeDeUsuario, data.Email);
         }
     }
 }

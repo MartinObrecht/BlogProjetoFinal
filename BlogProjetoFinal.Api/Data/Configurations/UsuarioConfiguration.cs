@@ -1,8 +1,8 @@
-﻿using BlogProjetoFinal.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BlogProjetoFinal.Repository.Configurations
+namespace BlogProjetoFinal.Api.Data.Configurations
 {
     public class UsuarioConfiguration : IEntityTypeConfiguration<UsuarioEntity>
     {

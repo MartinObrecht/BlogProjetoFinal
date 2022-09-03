@@ -6,7 +6,7 @@ namespace BlogProjetoFinal.Domain.Handlers.Usuario.Update
     {
         public UpdateUsuarioCommandValidator()
         {
-            RuleFor(request => request.Body.Id).NotEmpty().NotNull();
+            RuleFor(request => request.Id).NotEmpty().NotNull();
         }
     }
 }
