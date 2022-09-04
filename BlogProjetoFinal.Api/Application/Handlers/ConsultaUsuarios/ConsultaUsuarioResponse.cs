@@ -4,5 +4,7 @@
     {
         public string NomeDeUsuario { get; set; }
         public string Email { get; set; }
+        public int CodigoRetorno { get; set; }
+        public string MensagemRetorno { get; set; }
     }
 }
