@@ -1,11 +1,11 @@
 ﻿using BlogProjetoFinal.Api.Application.Handlers.ConsultaUsuarios;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace BlogProjetoFinal.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class UsuarioController : ControllerBase
     {
@@ -16,12 +16,20 @@ namespace BlogProjetoFinal.Api.Controllers
         }
 
         [HttpGet]
-        [Route("v1/Usuario")]
-        public async Task<IActionResult> ObterUsuario(Guid id)
+        [Route("{id}")]
+        public async Task<IActionResult> ObterUsuario([FromRoute]Guid id)
         {
             var result = await _mediator.Send(new ConsultaUsuarioRequest(id));
 
-            return Ok(result);
+            switch(result.CodigoRetorno)
+            {
+                case (int)HttpStatusCode.OK:
+                    return Ok(result);
+                case (int)HttpStatusCode.NotFound:
+                    return NotFound(result);
+                default:
+                    return BadRequest(result);
+            }
         }
     }
 }

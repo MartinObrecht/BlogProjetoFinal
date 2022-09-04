@@ -22,6 +22,8 @@ namespace BlogProjetoFinal.Api.Application.Handlers.ConsultaUsuarios
 
             response.NomeDeUsuario = usuario.NomeDeUsuario;
             response.Email = usuario.Email;
+            response.CodigoRetorno = usuario.CodigoRetorno;
+            response.MensagemRetorno = usuario.MensagemRetorno;
 
             return await Task.FromResult(response);
         }
