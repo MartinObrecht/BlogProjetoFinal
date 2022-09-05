@@ -1,4 +1,4 @@
-﻿using BlogProjetoFinal.Api.Application.Handlers.ConsultaUsuarios;
+﻿using BlogProjetoFinal.Application.Handlers.Usuario.ConsultaUsuario;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -17,11 +17,11 @@ namespace BlogProjetoFinal.Api.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<IActionResult> ObterUsuario([FromRoute]Guid id)
+        public async Task<IActionResult> ObterUsuario([FromRoute] Guid id)
         {
             var result = await _mediator.Send(new ConsultaUsuarioRequest(id));
 
-            switch(result.CodigoRetorno)
+            switch (result.CodigoRetorno)
             {
                 case (int)HttpStatusCode.OK:
                     return Ok(result);
