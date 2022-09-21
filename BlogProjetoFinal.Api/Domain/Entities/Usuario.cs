@@ -1,11 +1,11 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BlogProjetoFinal.Domain.Entities
+namespace BlogProjetoFinal.Api.Domain.Entities
 {
-    public class UsuarioEntity : BaseEntity
+    public class Usuario : BaseEntity
     {
         [JsonIgnore]
-        public Guid ID { get; set; }
+        public Guid Id { get; set; }
         public string Nome { get; set; }
         public string NomeDeUsuario { get; set; }
         public string Email { get; set; }
@@ -14,15 +14,15 @@ namespace BlogProjetoFinal.Domain.Entities
         public DateTime DataCriacao { get; set; }
         [JsonIgnore]
         public DateTime DataAtualizacao { get; set; }
-        public virtual ICollection<ArtigoEntity> Artigos { get; set; }
+        public virtual ICollection<Artigo> Artigos { get; set; }
 
-        public UsuarioEntity()
+        public Usuario()
         {
 
         }
-        public UsuarioEntity(string nome, string nomeDeUsuario, string email, string senha)
+        public Usuario(string nome, string nomeDeUsuario, string email, string senha)
         {
-            ID = Guid.NewGuid();
+            Id = Guid.NewGuid();
             Nome = nome;
             NomeDeUsuario = nomeDeUsuario;
             Email = email;

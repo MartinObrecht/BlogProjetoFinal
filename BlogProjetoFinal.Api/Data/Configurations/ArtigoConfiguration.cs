@@ -1,18 +1,18 @@
-﻿using BlogProjetoFinal.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace BlogProjetoFinal.Data.Configurations
+namespace BlogProjetoFinal.Api.Data.Configurations
 {
-    public class ArtigoConfiguration : IEntityTypeConfiguration<ArtigoEntity>
+    public class ArtigoConfiguration : IEntityTypeConfiguration<Artigo>
     {
-        public void Configure(EntityTypeBuilder<ArtigoEntity> builder)
+        public void Configure(EntityTypeBuilder<Artigo> builder)
         {
             builder.ToTable("tb_artigo");
 
-            builder.Property(o => o.ID).ValueGeneratedNever();
+            builder.Property(o => o.Id).ValueGeneratedNever();
 
-            builder.HasKey(o => o.ID);
+            builder.HasKey(o => o.Id);
 
             builder.Property(o => o.Titulo)
                 .HasColumnType("varchar(50)")

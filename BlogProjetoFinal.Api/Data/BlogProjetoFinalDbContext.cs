@@ -1,7 +1,7 @@
-﻿using BlogProjetoFinal.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlogProjetoFinal.Data
+namespace BlogProjetoFinal.Api.Data
 {
     public class BlogProjetoFinalDbContext : DbContext
     {
@@ -11,8 +11,8 @@ namespace BlogProjetoFinal.Data
         {
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
-        public DbSet<ArtigoEntity> ArtigoEntity { get; set; }
-        public DbSet<CategoriaEntity> CategoriaEntity { get; set; }
-        public DbSet<UsuarioEntity> UsuarioEntity { get; set; }
+        public DbSet<Usuario> UsuarioEntity { get; set; }
+        public DbSet<Artigo> ArtigoEntity { get; set; }
+        public DbSet<Categoria> CategoriaEntity { get; set; }
     }
 }

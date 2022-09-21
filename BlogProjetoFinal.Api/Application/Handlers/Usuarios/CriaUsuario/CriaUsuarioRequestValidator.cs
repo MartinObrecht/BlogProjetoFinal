@@ -1,6 +1,6 @@
 ﻿ using FluentValidation;
 
-namespace BlogProjetoFinal.Application.Handlers.Usuario.CriaUsuario
+namespace BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario
 {
     public class CriaUsuarioRequestValidator : AbstractValidator<CriaUsuarioRequest>
     {

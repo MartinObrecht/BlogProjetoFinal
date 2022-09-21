@@ -1,7 +1,7 @@
-﻿using BlogProjetoFinal.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using MediatR;
 
-namespace BlogProjetoFinal.Application.Handlers.Usuario.CriaUsuario
+namespace BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario
 {
     public class CriaUsuarioRequest : IRequest<CriaUsuarioResponse>
     {

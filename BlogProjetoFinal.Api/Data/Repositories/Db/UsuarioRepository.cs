@@ -1,9 +1,9 @@
-﻿using BlogProjetoFinal.Domain.Entities;
-using BlogProjetoFinal.Domain.Messages;
-using BlogProjetoFinal.Domain.Repositories;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
+using BlogProjetoFinal.Api.Domain.Messages;
+using BlogProjetoFinal.Api.Domain.Repositories;
 using System.Net;
 
-namespace BlogProjetoFinal.Data.Repositories.Db
+namespace BlogProjetoFinal.Api.Data.Repositories.Db
 {
     public class UsuarioRepository : BaseRepository, IUsuarioRepository
     {
@@ -11,9 +11,9 @@ namespace BlogProjetoFinal.Data.Repositories.Db
         {
         }
 
-        public async Task<List<UsuarioEntity>> ObterUsuarios()
+        public async Task<List<Usuario>> ObterUsuarios()
         {
-            var usuarios = new List<UsuarioEntity>();
+            var usuarios = new List<Usuario>();
 
             try
             {
@@ -27,7 +27,7 @@ namespace BlogProjetoFinal.Data.Repositories.Db
             }
             catch (Exception ex)
             {
-                usuarios.Add(new UsuarioEntity
+                usuarios.Add(new Usuario
                 {
                     CodigoRetorno = (int)HttpStatusCode.InternalServerError,
                     MensagemRetorno = $"{MensagensRetornoFields.OcorreuErro}: {ex.Message}",
@@ -37,9 +37,9 @@ namespace BlogProjetoFinal.Data.Repositories.Db
             return await Task.FromResult(usuarios);
         }
 
-        public async Task<UsuarioEntity> ObterUsuario(Guid id)
+        public async Task<Usuario> ObterUsuario(Guid id)
         {
-            var usuario = new UsuarioEntity();
+            var usuario = new Usuario();
 
             try
             {
@@ -67,7 +67,7 @@ namespace BlogProjetoFinal.Data.Repositories.Db
             return await Task.FromResult(usuario);
         }
 
-        public async Task<UsuarioEntity> CriarUsuario(UsuarioEntity usuarioEntity)
+        public async Task<Usuario> CriarUsuario(Usuario usuarioEntity)
         {
             try
             {

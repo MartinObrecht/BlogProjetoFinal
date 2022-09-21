@@ -1,8 +1,8 @@
-﻿using BlogProjetoFinal.Domain.Entities;
-using BlogProjetoFinal.Domain.Repositories;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
+using BlogProjetoFinal.Api.Domain.Repositories;
 using MediatR;
 
-namespace BlogProjetoFinal.Application.Handlers.Usuario.CriaUsuario
+namespace BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario
 {
     public class CriaUsuarioHandler : IRequestHandler<CriaUsuarioRequest, CriaUsuarioResponse>
     {
@@ -15,7 +15,7 @@ namespace BlogProjetoFinal.Application.Handlers.Usuario.CriaUsuario
 
         public async Task<CriaUsuarioResponse> Handle(CriaUsuarioRequest request, CancellationToken cancellationToken)
         {
-            var novoUsuario = new UsuarioEntity(request.Nome, request.NomeDeUsuario, request.Email, request.Senha);
+            var novoUsuario = new Domain.Entities.Usuario(request.Nome, request.NomeDeUsuario, request.Email, request.Senha);
 
             var usuario = _usuarioRepository.CriarUsuario(novoUsuario).Result;
             var response = new CriaUsuarioResponse

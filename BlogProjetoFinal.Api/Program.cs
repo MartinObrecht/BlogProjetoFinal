@@ -1,7 +1,9 @@
-using BlogProjetoFinal.Application.Handlers.Usuario.ConsultaUsuario;
-using BlogProjetoFinal.Data;
-using BlogProjetoFinal.Data.Repositories.Db;
-using BlogProjetoFinal.Domain.Repositories;
+using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuario;
+using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuarios;
+using BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario;
+using BlogProjetoFinal.Api.Data;
+using BlogProjetoFinal.Api.Data.Repositories.Db;
+using BlogProjetoFinal.Api.Domain.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -18,7 +20,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
-builder.Services.AddTransient<IRequestHandler<ConsultaUsuarioRequest, ConsultaUsuarioResponse>, ConsultaUsuarioHandler>();
+builder.Services.AddScoped<IRequestHandler<ConsultaUsuarioRequest, ConsultaUsuarioResponse>, ConsultaUsuarioHandler>();
+builder.Services.AddScoped<IRequestHandler<ConsultaUsuariosRequest, List<ConsultaUsuariosResponse>>, ConsultaUsuariosHandler>();
+builder.Services.AddScoped<IRequestHandler<CriaUsuarioRequest, CriaUsuarioResponse>, CriaUsuarioHandler>();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
