@@ -15,7 +15,7 @@ namespace BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario
 
         public async Task<CriaUsuarioResponse> Handle(CriaUsuarioRequest request, CancellationToken cancellationToken)
         {
-            var novoUsuario = new Domain.Entities.Usuario(request.Nome, request.NomeDeUsuario, request.Email, request.Senha);
+            var novoUsuario = new Usuario(request.Nome, request.NomeDeUsuario, request.Email, request.Senha);
 
             var usuario = _usuarioRepository.CriarUsuario(novoUsuario).Result;
             var response = new CriaUsuarioResponse

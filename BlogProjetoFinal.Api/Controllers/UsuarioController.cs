@@ -1,4 +1,5 @@
-﻿using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuario;
+﻿using BlogProjetoFinal.Api.Application.Handlers.Usuarios.AtualizaUsuario;
+using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuario;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuarios;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario;
 using MediatR;
@@ -58,6 +59,24 @@ namespace BlogProjetoFinal.Api.Controllers
             switch (result.CodigoRetorno)
             {
                 case (int)HttpStatusCode.Created:
+                    return StatusCode(result.CodigoRetorno, result);
+                case (int)HttpStatusCode.NotAcceptable:
+                    return StatusCode(result.CodigoRetorno, result.MensagemRetorno);
+                case (int)HttpStatusCode.InternalServerError:
+                    return StatusCode(result.CodigoRetorno, result.MensagemRetorno);
+                default:
+                    return BadRequest(result.CodigoRetorno);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> AtualizaUsuatio([FromBody] AtualizaUsuarioRequest usuarioAtualizado)
+        {
+            var result = await _mediator.Send(usuarioAtualizado);
+
+            switch (result.CodigoRetorno)
+            {
+                case (int)HttpStatusCode.OK:
                     return StatusCode(result.CodigoRetorno, result);
                 case (int)HttpStatusCode.NotAcceptable:
                     return StatusCode(result.CodigoRetorno, result.MensagemRetorno);

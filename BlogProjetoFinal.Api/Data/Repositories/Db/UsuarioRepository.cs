@@ -1,4 +1,5 @@
-﻿using BlogProjetoFinal.Api.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Application.Handlers.Usuarios.AtualizaUsuario;
+using BlogProjetoFinal.Api.Domain.Entities;
 using BlogProjetoFinal.Api.Domain.Messages;
 using BlogProjetoFinal.Api.Domain.Repositories;
 using System.Net;
@@ -39,18 +40,16 @@ namespace BlogProjetoFinal.Api.Data.Repositories.Db
 
         public async Task<Usuario> ObterUsuario(Guid id)
         {
-            var usuario = new Usuario();
+            Usuario usuario;
 
             try
             {
-                var resultQuery = DbContext.UsuarioEntity.FindAsync(id).Result;
+                usuario = DbContext.UsuarioEntity.FindAsync(id).Result;
 
-                if (!(resultQuery == null))
+                if (!(usuario == null))
                 {
                     usuario.CodigoRetorno = (int)HttpStatusCode.OK;
                     usuario.MensagemRetorno = MensagensRetornoFields.Sucesso;
-                    usuario.NomeDeUsuario = resultQuery.NomeDeUsuario;
-                    usuario.Email = resultQuery.Email;
                 }
                 else
                 {
@@ -60,8 +59,7 @@ namespace BlogProjetoFinal.Api.Data.Repositories.Db
             }
             catch (Exception ex)
             {
-                usuario.CodigoRetorno = (int)HttpStatusCode.InternalServerError;
-                usuario.MensagemRetorno = $"{MensagensRetornoFields.OcorreuErro}: {ex.Message}";
+                throw;
             }
 
             return await Task.FromResult(usuario);
@@ -85,6 +83,23 @@ namespace BlogProjetoFinal.Api.Data.Repositories.Db
             }
 
             return await Task.FromResult(usuarioEntity);
+        }
+
+        public async Task<Usuario> AtualizaUsuario(Usuario usuarioAtualizado)
+        {
+
+            try
+            {                
+                DbContext.UsuarioEntity.Update(usuarioAtualizado);
+
+                await DbContext.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return await Task.FromResult(usuarioAtualizado);
         }
     }
 }

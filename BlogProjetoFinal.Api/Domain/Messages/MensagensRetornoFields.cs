@@ -6,5 +6,6 @@
         public const string UsuarioNaoEncontrado = "Usuário não encontrado";
         public const string UsuarioCriado = "Usuário criado com sucesso";
         public const string OcorreuErro = "Ocorreu um erro";
+        public const string UsuarioAtualizado = "Usuário Atualizado";
     }
 }
