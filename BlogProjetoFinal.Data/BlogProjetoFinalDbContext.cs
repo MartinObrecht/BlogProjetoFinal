@@ -11,8 +11,8 @@ namespace BlogProjetoFinal.Data
         {
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
-        public DbSet<UsuarioEntity> UsuarioEntity { get; set; }
         public DbSet<ArtigoEntity> ArtigoEntity { get; set; }
         public DbSet<CategoriaEntity> CategoriaEntity { get; set; }
+        public DbSet<UsuarioEntity> UsuarioEntity { get; set; }
     }
 }

@@ -10,9 +10,9 @@ namespace BlogProjetoFinal.Data.Configurations
         {
             builder.ToTable("tb_categoria");
 
-            builder.Property(o => o.Id).ValueGeneratedNever();
+            builder.Property(o => o.ID).ValueGeneratedNever();
 
-            builder.HasKey(o => o.Id);
+            builder.HasKey(o => o.ID);
 
             builder.Property(o => o.NomeCategoria)
                 .HasColumnType("varchar(20)")
@@ -27,12 +27,12 @@ namespace BlogProjetoFinal.Data.Configurations
                 .IsRequired();
 
             builder.HasData(
-                new CategoriaEntity { Id = 1, NomeCategoria = "Backend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
-                new CategoriaEntity { Id = 2, NomeCategoria = "Frontend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
-                new CategoriaEntity { Id = 3, NomeCategoria = "Mobile", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
-                new CategoriaEntity { Id = 4, NomeCategoria = "Cloud", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
-                new CategoriaEntity { Id = 5, NomeCategoria = "Testes", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
-                new CategoriaEntity { Id = 6, NomeCategoria = "Arquitetura", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now }
+                new CategoriaEntity { ID = 1, NomeCategoria = "Backend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
+                new CategoriaEntity { ID = 2, NomeCategoria = "Frontend", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
+                new CategoriaEntity { ID = 3, NomeCategoria = "Mobile", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
+                new CategoriaEntity { ID = 4, NomeCategoria = "Cloud", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
+                new CategoriaEntity { ID = 5, NomeCategoria = "Testes", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now },
+                new CategoriaEntity { ID = 6, NomeCategoria = "Arquitetura", DataCriacao = DateTime.Now, DataAtualizacao = DateTime.Now }
                 );
         }
     }

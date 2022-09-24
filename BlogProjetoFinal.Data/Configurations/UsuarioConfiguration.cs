@@ -10,9 +10,9 @@ namespace BlogProjetoFinal.Data.Configurations
         {
             builder.ToTable("tb_usuario");
 
-            builder.Property(o => o.Id).ValueGeneratedNever();
+            builder.Property(o => o.ID).ValueGeneratedNever();
 
-            builder.HasKey(o => o.Id);
+            builder.HasKey(o => o.ID);
 
             builder.Property(o => o.Nome)
                 .HasColumnType("varchar(100)")

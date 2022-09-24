@@ -5,7 +5,7 @@ namespace BlogProjetoFinal.Domain.Entities
     public class UsuarioEntity : BaseEntity
     {
         [JsonIgnore]
-        public Guid Id { get; set; }
+        public Guid ID { get; set; }
         public string Nome { get; set; }
         public string NomeDeUsuario { get; set; }
         public string Email { get; set; }
@@ -14,6 +14,7 @@ namespace BlogProjetoFinal.Domain.Entities
         public DateTime DataCriacao { get; set; }
         [JsonIgnore]
         public DateTime DataAtualizacao { get; set; }
+        public virtual ICollection<ArtigoEntity> Artigos { get; set; }
 
         public UsuarioEntity()
         {
@@ -21,7 +22,7 @@ namespace BlogProjetoFinal.Domain.Entities
         }
         public UsuarioEntity(string nome, string nomeDeUsuario, string email, string senha)
         {
-            Id = Guid.NewGuid();
+            ID = Guid.NewGuid();
             Nome = nome;
             NomeDeUsuario = nomeDeUsuario;
             Email = email;

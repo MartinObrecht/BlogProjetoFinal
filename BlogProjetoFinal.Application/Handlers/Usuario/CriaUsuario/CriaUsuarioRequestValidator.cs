@@ -1,4 +1,4 @@
-﻿using FluentValidation;
+﻿ using FluentValidation;
 
 namespace BlogProjetoFinal.Application.Handlers.Usuario.CriaUsuario
 {
@@ -6,10 +6,10 @@ namespace BlogProjetoFinal.Application.Handlers.Usuario.CriaUsuario
     {
         public CriaUsuarioRequestValidator()
         {
-            RuleFor(request => request.NovoUsuario.Nome).NotEmpty().NotNull();
-            RuleFor(request => request.NovoUsuario.NomeDeUsuario).NotEmpty().NotNull();
-            RuleFor(request => request.NovoUsuario.Senha).NotEmpty().NotNull();
-            RuleFor(request => request.NovoUsuario.Email).NotEmpty().NotNull();
+            RuleFor(request => request.Nome).NotEmpty().NotNull();
+            RuleFor(request => request.NomeDeUsuario).NotEmpty().NotNull();
+            RuleFor(request => request.Senha).NotEmpty().NotNull();
+            RuleFor(request => request.Email).NotEmpty().NotNull();
         }
     }
 }

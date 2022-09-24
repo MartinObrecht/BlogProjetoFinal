@@ -19,10 +19,19 @@ namespace BlogProjetoFinal.Data.Repositories.Db
             {
                 usuarios = DbContext.UsuarioEntity.AsEnumerable().ToList();
 
+                foreach(var usuario in usuarios)
+                {
+                    usuario.CodigoRetorno = (int)HttpStatusCode.OK;
+                }
+
             }
             catch (Exception ex)
             {
-
+                usuarios.Add(new UsuarioEntity
+                {
+                    CodigoRetorno = (int)HttpStatusCode.InternalServerError,
+                    MensagemRetorno = $"{MensagensRetornoFields.OcorreuErro}: {ex.Message}",
+            });
             }
 
             return await Task.FromResult(usuarios);
