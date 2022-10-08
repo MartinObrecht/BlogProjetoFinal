@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogProjetoFinal.Api.Migrations
 {
     [DbContext(typeof(BlogProjetoFinalDbContext))]
-    [Migration("20220921231200_Initial")]
+    [Migration("20220925170147_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,12 +24,15 @@ namespace BlogProjetoFinal.Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.ArtigoEntity", b =>
+            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Artigo", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoriaEntityID")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("CategoriaId")
                         .HasColumnType("int");
 
                     b.Property<string>("Conteudo")
@@ -46,21 +49,21 @@ namespace BlogProjetoFinal.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<Guid>("UsuarioEntityID")
+                    b.Property<Guid>("UsuarioId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("CategoriaEntityID");
+                    b.HasIndex("CategoriaId");
 
-                    b.HasIndex("UsuarioEntityID");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("tb_artigo", (string)null);
                 });
 
-            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.CategoriaEntity", b =>
+            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Categoria", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DataAtualizacao")
@@ -73,58 +76,58 @@ namespace BlogProjetoFinal.Api.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("tb_categoria", (string)null);
 
                     b.HasData(
                         new
                         {
-                            ID = 1,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3146),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3137),
+                            Id = 1,
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4874),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4861),
                             NomeCategoria = "Backend"
                         },
                         new
                         {
-                            ID = 2,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3149),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3148),
+                            Id = 2,
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4876),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4875),
                             NomeCategoria = "Frontend"
                         },
                         new
                         {
-                            ID = 3,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3150),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3149),
+                            Id = 3,
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4878),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4877),
                             NomeCategoria = "Mobile"
                         },
                         new
                         {
-                            ID = 4,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3151),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3151),
+                            Id = 4,
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4880),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4879),
                             NomeCategoria = "Cloud"
                         },
                         new
                         {
-                            ID = 5,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3152),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3152),
+                            Id = 5,
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4881),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4880),
                             NomeCategoria = "Testes"
                         },
                         new
                         {
-                            ID = 6,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3153),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 12, 0, 347, DateTimeKind.Local).AddTicks(3153),
+                            Id = 6,
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4884),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4883),
                             NomeCategoria = "Arquitetura"
                         });
                 });
 
-            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.UsuarioEntity", b =>
+            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Usuario", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DataAtualizacao")
@@ -149,22 +152,22 @@ namespace BlogProjetoFinal.Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("tb_usuario", (string)null);
                 });
 
-            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.ArtigoEntity", b =>
+            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Artigo", b =>
                 {
-                    b.HasOne("BlogProjetoFinal.Api.Domain.Entities.CategoriaEntity", "Categoria")
+                    b.HasOne("BlogProjetoFinal.Api.Domain.Entities.Categoria", "Categoria")
                         .WithMany("Artigos")
-                        .HasForeignKey("CategoriaEntityID")
+                        .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BlogProjetoFinal.Api.Domain.Entities.UsuarioEntity", "Usuario")
+                    b.HasOne("BlogProjetoFinal.Api.Domain.Entities.Usuario", "Usuario")
                         .WithMany("Artigos")
-                        .HasForeignKey("UsuarioEntityID")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -173,12 +176,12 @@ namespace BlogProjetoFinal.Api.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.CategoriaEntity", b =>
+            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Categoria", b =>
                 {
                     b.Navigation("Artigos");
                 });
 
-            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.UsuarioEntity", b =>
+            modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Usuario", b =>
                 {
                     b.Navigation("Artigos");
                 });

@@ -1,3 +1,4 @@
+using BlogProjetoFinal.Api.Application.Handlers.Artigos.CriaArtigo;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuario;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuarios;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario;
@@ -23,8 +24,10 @@ builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddScoped<IRequestHandler<ConsultaUsuarioRequest, ConsultaUsuarioResponse>, ConsultaUsuarioHandler>();
 builder.Services.AddScoped<IRequestHandler<ConsultaUsuariosRequest, List<ConsultaUsuariosResponse>>, ConsultaUsuariosHandler>();
 builder.Services.AddScoped<IRequestHandler<CriaUsuarioRequest, CriaUsuarioResponse>, CriaUsuarioHandler>();
+builder.Services.AddScoped<IRequestHandler<CriaArtigoRequest, CriaArtigoResponse>, CriaArtigoHandler>();
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IArtigoRepository, ArtigoRepository>();
 
 var app = builder.Build();
 

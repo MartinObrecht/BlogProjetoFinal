@@ -1,5 +1,4 @@
-﻿using BlogProjetoFinal.Api.Application.Handlers.Usuarios.AtualizaUsuario;
-using BlogProjetoFinal.Api.Domain.Entities;
+﻿using BlogProjetoFinal.Api.Domain.Entities;
 using BlogProjetoFinal.Api.Domain.Messages;
 using BlogProjetoFinal.Api.Domain.Repositories;
 using System.Net;

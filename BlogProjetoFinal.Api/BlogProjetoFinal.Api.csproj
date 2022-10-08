@@ -23,4 +23,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Handlers\Artigos\ConsultaArtigosPorCategoria\" />
+    <Folder Include="Application\Handlers\Artigos\ConsultaArtigosPorUsuario\" />
+    <Folder Include="Application\Handlers\Artigos\AtualizarArtigo\" />
+  </ItemGroup>
+
 </Project>

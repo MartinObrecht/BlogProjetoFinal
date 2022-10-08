@@ -10,7 +10,7 @@ namespace BlogProjetoFinal.Api.Data.Configurations
         {
             builder.ToTable("tb_artigo");
 
-            builder.Property(o => o.Id).ValueGeneratedNever();
+            builder.Property(o => o.Id).ValueGeneratedOnAdd();
 
             builder.HasKey(o => o.Id);
 

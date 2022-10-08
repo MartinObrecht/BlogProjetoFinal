@@ -1,4 +1,5 @@
-﻿using BlogProjetoFinal.Api.Domain.Repositories;
+﻿using BlogProjetoFinal.Api.Domain.Messages;
+using BlogProjetoFinal.Api.Domain.Repositories;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -31,17 +32,10 @@ namespace BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuarios
                     {
                         CodigoRetorno = usuario.CodigoRetorno,
                         Email = usuario.Email,
-                        MensagemRetorno = usuario.MensagemRetorno,
+                        MensagemRetorno = MensagensRetornoFields.Sucesso,
                         NomeDeUsuario = usuario.NomeDeUsuario
                     });
                 }
-            }
-            else
-            {
-                response.Add(new ConsultaUsuariosResponse
-                {
-                    MensagemRetorno = "Ajustar implementação"
-                });
             }
 
             return await Task.FromResult(response);

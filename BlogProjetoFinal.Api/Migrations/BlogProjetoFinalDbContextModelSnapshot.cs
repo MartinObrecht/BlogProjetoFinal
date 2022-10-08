@@ -4,7 +4,6 @@ using BlogProjetoFinal.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,10 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogProjetoFinal.Api.Migrations
 {
     [DbContext(typeof(BlogProjetoFinalDbContext))]
-    [Migration("20220921234122_UpdatesEnities")]
-    partial class UpdatesEnities
+    partial class BlogProjetoFinalDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,7 +25,10 @@ namespace BlogProjetoFinal.Api.Migrations
             modelBuilder.Entity("BlogProjetoFinal.Api.Domain.Entities.Artigo", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("CategoriaId")
                         .HasColumnType("int");
@@ -81,43 +82,43 @@ namespace BlogProjetoFinal.Api.Migrations
                         new
                         {
                             Id = 1,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7594),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7585),
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4874),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4861),
                             NomeCategoria = "Backend"
                         },
                         new
                         {
                             Id = 2,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7597),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7596),
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4876),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4875),
                             NomeCategoria = "Frontend"
                         },
                         new
                         {
                             Id = 3,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7598),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7597),
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4878),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4877),
                             NomeCategoria = "Mobile"
                         },
                         new
                         {
                             Id = 4,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7599),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7599),
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4880),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4879),
                             NomeCategoria = "Cloud"
                         },
                         new
                         {
                             Id = 5,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7600),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7600),
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4881),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4880),
                             NomeCategoria = "Testes"
                         },
                         new
                         {
                             Id = 6,
-                            DataAtualizacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7601),
-                            DataCriacao = new DateTime(2022, 9, 21, 20, 41, 21, 906, DateTimeKind.Local).AddTicks(7601),
+                            DataAtualizacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4884),
+                            DataCriacao = new DateTime(2022, 9, 25, 14, 1, 47, 662, DateTimeKind.Local).AddTicks(4883),
                             NomeCategoria = "Arquitetura"
                         });
                 });
