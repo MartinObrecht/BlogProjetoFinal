@@ -8,5 +8,7 @@
         public const string OcorreuErro = "Ocorreu um erro";
         public const string UsuarioAtualizado = "Usuário Atualizado";
         public const string ArtigoCriado = "Artigo criado com sucesso";
+        public const string ArtigoAtualizado = "Artigo atualizado com sucesso";
+        public const string ArtigoRemovido = "Artigo removido com sucesso";
     }
 }

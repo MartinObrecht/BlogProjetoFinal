@@ -1,6 +1,9 @@
-﻿using BlogProjetoFinal.Api.Application.Handlers.Artigos.ConsultaArtigo;
+﻿using BlogProjetoFinal.Api.Application.Handlers.Artigos.AtualizarArtigo;
+using BlogProjetoFinal.Api.Application.Handlers.Artigos.ConsultaArtigo;
 using BlogProjetoFinal.Api.Application.Handlers.Artigos.ConsultaArtigos;
+using BlogProjetoFinal.Api.Application.Handlers.Artigos.ConsultaArtigosPorUsuario;
 using BlogProjetoFinal.Api.Application.Handlers.Artigos.CriaArtigo;
+using BlogProjetoFinal.Api.Application.Handlers.Artigos.RemoverArtigo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -54,6 +57,39 @@ namespace BlogProjetoFinal.Api.Controllers
         public async Task<IActionResult> ObterArtigo([FromRoute] int id)
         {
             var result = await _mediator.Send(new ConsultaArtigoRequest(id));
+
+            switch (result.CodigoRetorno)
+            {
+                case (int)HttpStatusCode.OK:
+                    return Ok(result);
+                case (int)HttpStatusCode.NotFound:
+                    return NotFound(result);
+                default:
+                    return BadRequest(result);
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> AtualizarArtigo([FromBody] AtualizarArtigoRequest artigoAtualizado)
+        {
+            var result = await _mediator.Send(artigoAtualizado);
+
+            switch (result.CodigoRetorno)
+            {
+                case (int)HttpStatusCode.OK:
+                    return Ok(result);
+                case (int)HttpStatusCode.NotFound:
+                    return NotFound(result);
+                default:
+                    return BadRequest(result);
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> DeletarArtigo([FromRoute] int id)
+        {
+            var result = await _mediator.Send(new RemoverArtigoRequest(id));
 
             switch (result.CodigoRetorno)
             {

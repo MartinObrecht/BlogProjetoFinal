@@ -69,11 +69,7 @@ namespace BlogProjetoFinal.Api.Data.Repositories.Db
             try
             {
                 artigo = await DbContext.ArtigoEntity
-                    .AsNoTracking()
-                    .Include(u => u.Usuario)
-                    .Include(c => c.Categoria)
-                    .Where(x => x.Id.Equals(id))
-                    .FirstOrDefaultAsync();
+                    .AsNoTracking().Include(u => u.Usuario).Include(c => c.Categoria).Where(x => x.Id.Equals(id)).FirstOrDefaultAsync();
 
                 if (!(artigo == null))
                 {
