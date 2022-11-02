@@ -2,11 +2,11 @@
 {
     public enum CategoriaEnum
     {
-        Backend,
-        Frontend,
-        Mobile,
-        Cloud,
-        Testes,
-        Arquitetura
+        Backend = 1,
+        Frontend = 2,
+        Mobile = 3,
+        Cloud = 4,
+        Testes = 5,
+        Arquitetura = 6,
     }
 }

@@ -1,4 +1,5 @@
-﻿using BlogProjetoFinal.Api.Application.Handlers.Usuarios.AtualizaUsuario;
+﻿using BlogProjetoFinal.Api.Application.Handlers.Artigos.ConsultaArtigosPorUsuario;
+using BlogProjetoFinal.Api.Application.Handlers.Usuarios.AtualizaUsuario;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuario;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.ConsultaUsuarios;
 using BlogProjetoFinal.Api.Application.Handlers.Usuarios.CriaUsuario;
@@ -84,6 +85,23 @@ namespace BlogProjetoFinal.Api.Controllers
                     return StatusCode(result.CodigoRetorno, result.MensagemRetorno);
                 default:
                     return BadRequest(result.CodigoRetorno);
+            }
+        }
+
+        [HttpGet]
+        [Route("{id}/artigos")]
+        public async Task<IActionResult> ObterArtigoPorUsuario([FromRoute] Guid id)
+        {
+            var result = await _mediator.Send(new ConsultaArtigosPorUsuarioRequest(id));
+
+            switch (result.FirstOrDefault().CodigoRetorno)
+            {
+                case (int)HttpStatusCode.OK:
+                    return Ok(result);
+                case (int)HttpStatusCode.NotFound:
+                    return NotFound(result);
+                default:
+                    return BadRequest(result);
             }
         }
     }
