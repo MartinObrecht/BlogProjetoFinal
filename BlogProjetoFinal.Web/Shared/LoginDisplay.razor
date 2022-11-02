@@ -1,0 +1,27 @@
+﻿@using BlazorBlogs.Data;
+@inherits OwningComponentBase<GeneralSettingsService>
+
+<AuthorizeView>
+    <Authorized>
+        <a href="Identity/Account/Manage">Olá, @context.User.Identity.Name!</a>
+        <form method="post" action="Identity/Account/LogOut">
+            <button type="submit" class="nav-link btn btn-link">Sair</button>
+        </form>
+    </Authorized>
+    <NotAuthorized>
+        @if (AllowRegistration)
+        {
+            <a href="Identity/Account/Register">Cadastre-se</a>
+        }
+        <a href="Identity/Account/Login">Entrar</a>
+    </NotAuthorized>
+</AuthorizeView>
+@code {
+    bool AllowRegistration = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var objGeneralSettings = await @Service.GetGeneralSettingsAsync();
+        AllowRegistration = objGeneralSettings.AllowRegistration;
+    }
+}
